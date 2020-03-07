@@ -110,6 +110,41 @@ def completeTodo():
     writeTodos(todos)
 
 
+def uncompleteTodo():
+    # check that some text was given to us after the 'uncomplete' or 'undo' command
+    if len(sys.argv) < 3:
+        print("Tell us which todo number to uncomplete!")
+        exit(1)
+
+    # check that the todo number provided is an integer
+    indexToUncomplete = sys.argv[2]
+    if not indexToUncomplete.isdigit():
+        print("Todo number must be an integer!")
+        exit(1)
+
+    # convert the string todo number to an integer index
+    indexToUncomplete = int(indexToUncomplete) - 1
+
+    # get the todos
+    todos = readTodos()
+
+    # check that the chosen todo exists
+    if indexToUncomplete >= len(todos) or indexToUncomplete < 0:
+        print("Todo number", indexToUncomplete + 1, "does not exist!")
+        exit(1)
+
+    # check that the chosen todo is not already incomplete
+    if not isTodoCompleted(todos[indexToUncomplete]):
+        print("Todo number", indexToUncomplete + 1, "is already incomplete!")
+        exit(1)
+
+    # uncomplete the chosen todo by removing the tick character from the start
+    todos[indexToUncomplete] = todos[indexToUncomplete][1:]
+
+    # write the todos to the file, overwriting the old ones
+    writeTodos(todos)
+
+
 # print todos if there is no command
 if len(sys.argv) < 2:
     printTodos()
@@ -123,6 +158,8 @@ elif command == "add":
     addTodo()
 elif command == "complete" or command == "do":
     completeTodo()
+elif command == "uncomplete" or command == "undo":
+    uncompleteTodo()
 else:
     print("The command '" + command + "' is not suppported!")
     exit(1)
