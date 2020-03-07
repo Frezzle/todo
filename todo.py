@@ -145,6 +145,36 @@ def uncompleteTodo():
     writeTodos(todos)
 
 
+def deleteTodo():
+    # check that some text was given to us after the 'delete' command
+    if len(sys.argv) < 3:
+        print("Tell us which todo number to delete!")
+        exit(1)
+
+    # check that the todo number provided is an integer
+    indexToDelete = sys.argv[2]
+    if not indexToDelete.isdigit():
+        print("Todo number must be an integer!")
+        exit(1)
+
+    # convert the string todo number to an integer index
+    indexToDelete = int(indexToDelete) - 1
+
+    # get the todos
+    todos = readTodos()
+
+    # check that the chosen todo exists
+    if indexToDelete >= len(todos) or indexToDelete < 0:
+        print("Todo number", indexToDelete + 1, "does not exist!")
+        exit(1)
+
+    # delete the chosen todo by removing it from the todos array
+    del todos[indexToDelete]
+
+    # write the todos to the file, overwriting the old ones
+    writeTodos(todos)
+
+
 # print todos if there is no command
 if len(sys.argv) < 2:
     printTodos()
@@ -160,6 +190,8 @@ elif command == "complete" or command == "do":
     completeTodo()
 elif command == "uncomplete" or command == "undo":
     uncompleteTodo()
+elif command == "delete":
+    deleteTodo()
 else:
     print("The command '" + command + "' is not suppported!")
     exit(1)
