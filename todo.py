@@ -30,6 +30,21 @@ def printTodos():
         print(index + 1, "-", todos[index])
 
 
+def addTodo():
+    # check that some text was given to us after the 'add' command
+    if len(sys.argv) < 3:
+        print("Some text is needed!")
+        exit(1)
+
+    # get the todo as a string so we can write it to a new line in the todos file
+    args = sys.argv[2:]
+    todo = " ".join(args)
+
+    f = open(todoFile, "a+")  # open file for appending
+    f.write("\n" + todo)  # write the todo in a new line in the file
+    f.close()  # close the file now that we've finished writing it
+
+
 # print todos if there is no command
 if len(sys.argv) < 2:
     printTodos()
@@ -39,6 +54,8 @@ if len(sys.argv) < 2:
 command = sys.argv[1]
 if command == "print":
     printTodos()
+elif command == "add":
+    addTodo()
 else:
     print("The command '" + command + "' is not suppported!")
     exit(1)
