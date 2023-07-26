@@ -2,7 +2,7 @@
 
 ### Install
 
-No fancy install yet (#3), so just clone the repo and add an alias to your shell's config file:
+No fancy install [yet](https://github.com/Frezzle/todo/issues/3), so just clone the repo and add an alias to your shell's config file:
 ```sh
 alias todo='/Users/you/todo/todo.py'
 ```
