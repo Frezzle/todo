@@ -10,14 +10,14 @@ alias todo='/path/to/this/repo/todo.py'
 ### Add a task
 
 ```
-$ todo add clean the code
+$ todo add demonstrate the app
 ```
 
 ### List tasks
 
 ```
 $ todo
-1 - clean the code
+1 - demonstrate the app
 ```
 
 ### Complete a task
@@ -25,7 +25,7 @@ $ todo
 ```
 $ todo do 1
 $ todo
-1 - c̶l̶e̶a̶n̶ ̶t̶h̶e̶ ̶c̶o̶d̶e̶
+1 - d̶e̶m̶o̶n̶s̶t̶r̶a̶t̶e̶ ̶t̶h̶e̶ ̶a̶p̶p̶
 ```
 
 ### Uncomplete a task
@@ -33,7 +33,7 @@ $ todo
 ```
 $ todo undo 1
 $ todo
-1 - clean the code
+1 - demonstrate the app
 ```
 
 ### Delete a task
