@@ -13,6 +13,8 @@ alias todo='/path/to/this/repo/todo.py'
 $ todo add demonstrate the app
 ```
 
+Tasks are saved in a `todos.txt` file inside the repo location.
+
 ### List tasks
 
 ```
