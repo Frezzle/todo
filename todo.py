@@ -71,7 +71,7 @@ def addTodo():
     todo = " ".join(args)
 
     f = open(todoFile, "a+")  # open file for appending, creating it if it doesn't exist
-    f.write("\n" + todo)  # write the todo in a new line in the file
+    f.write(todo + "\n")  # write todo to file, last line should always be empty
     f.close()  # close the file now that we've finished writing it
 
 
