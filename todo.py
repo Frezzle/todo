@@ -3,7 +3,8 @@
 import sys
 import os
 
-todoFile = "todos.txt"  # all todos are saved to this file
+thisScriptDirectory = os.path.dirname(os.path.realpath(__file__))
+todoFile = os.path.join(thisScriptDirectory, "todos.txt")  # todos are saved beside the script
 tick = "/"  # this character at the start of each todo means that todo is completed
 
 # this function returns True if the todo is completed, otherwise returns False
